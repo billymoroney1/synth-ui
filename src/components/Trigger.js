@@ -24,6 +24,10 @@ export default function Trigger(props) {
             const reverb = new Tone.Reverb("2").toDestination()
             synth.connect(reverb)
         }
+        if (props.synth.includes('filter')){
+            const filter = new Tone.OnePoleFilter('400', 'lowpass').toDestination()
+            synth.connect(filter)
+        }
         synth.triggerAttackRelease("C4", "8n")
     }
 
