@@ -1,3 +1,12 @@
 if i want to control some sort of global state, should i do it in a higher order component or in redux?
 
 can i initialize tone in a hook instead of using a button?
+
+for now the Tone code will be contained in the Trigger component? is this something that should be extracted ro would that get ugly
+
+NEXT
+allow user to add polyphony (4 osc)
+choose pitches
+filter envelope
+envelope
+envelope graph (using Offline?)
