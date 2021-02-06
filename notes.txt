@@ -1,1 +1,3 @@
 if i want to control some sort of global state, should i do it in a higher order component or in redux?
+
+can i initialize tone in a hook instead of using a button?
