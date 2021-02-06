@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .off-btn {
+    @apply w-24 h-24 border border-black text-center flex flex-wrap justify-around content-center bg-gray-300;
+  }
+  .on-btn {
+    @apply w-24 h-24 border border-black text-center flex flex-wrap justify-around content-center bg-blue-500
+  }
+}
