@@ -30,6 +30,8 @@ export default function UI() {
             <div className='flex justify-around'>
                 <EffectControl name={'reverb'} add={effectAdd} remove={effectRemove} />
                 <EffectControl name={'filter'} add={effectAdd} remove={effectRemove} />
+                <EffectControl name={'phaser'} add={effectAdd} remove={effectRemove} />
+                <EffectControl name={'delay'} add={effectAdd} remove={effectRemove} />
             </div>
         </div>
     )

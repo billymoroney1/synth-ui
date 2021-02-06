@@ -17,6 +17,7 @@
     "react-scripts": "4.0.2",
     "redux": "^4.0.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "tone": "^14.7.77",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

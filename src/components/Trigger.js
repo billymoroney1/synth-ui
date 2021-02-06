@@ -27,8 +27,21 @@ export default function Trigger(props) {
         if (props.synth.includes('filter')){
             const filter = new Tone.OnePoleFilter('400', 'lowpass').toDestination()
             synth.connect(filter)
+        }  
+        if (props.synth.includes('phaser')){
+            const phaser = new Tone.Phaser({
+            "frequency" : 15,
+            "octaves" : 6,
+            "baseFrequency" : 1000})
+            .toDestination()
+            synth.connect(phaser)
         }
-        synth.triggerAttackRelease("C4", "8n")
+        if (props.synth.includes('delay')){
+            const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
+            synth.connect(delay)
+        }
+        // synth.triggerAttackRelease("C4", "8n")
+        synth.triggerAttackRelease("D2", "8n")
     }
 
 
