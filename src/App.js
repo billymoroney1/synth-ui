@@ -1,8 +1,12 @@
-import Button from './components/Button'
+import Trigger from './components/Trigger'
+import MainOnOff from './components/MainOnOff'
 
 function App() {
   return (
-    <Button />
+    <div>
+      <Trigger />
+      <MainOnOff />
+    </div>
   );
 }
 

@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import { Play } from 'heroicons-react'
 
-export default function Button() {
+import * as Tone from 'tone'
+
+export default function MainOnOff() {
     const [enabled, setEnabled] = useState(false)
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
+        if (!enabled) {
+            await Tone.start()
+            console.log('audio is ready')
+        }
         return (enabled ? setEnabled(false) : setEnabled(true))
     }
 
