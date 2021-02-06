@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Tone from 'tone'
 
 export default function Trigger() {
 
+    const [active, setActive] = useState(false)
+
     const handleClick = (e) => {
-        helloTone()
+        if (!active){
+            setActive(true)
+            setTimeout(() => {setActive(false)}, 200)
+            helloTone()
+        }
     }
 
     function helloTone(){
@@ -14,7 +20,7 @@ export default function Trigger() {
 
 
     return (
-        <div className='rounded-full w-12 h-12 border border-black bg-green-800 active:bg-green-300' onClick={handleClick}>
+        <div className={active ? 'act-trig' : 'inac-trig'} onClick={handleClick}>
             
         </div>
     )

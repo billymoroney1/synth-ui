@@ -1,11 +1,9 @@
-import Trigger from './components/Trigger'
-import MainOnOff from './components/MainOnOff'
+import UI from './components/UI'
 
 function App() {
   return (
     <div>
-      <Trigger />
-      <MainOnOff />
+      <UI />
     </div>
   );
 }

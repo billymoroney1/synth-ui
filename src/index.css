@@ -10,4 +10,10 @@
   .on-btn {
     @apply w-24 h-24 border border-black text-center flex flex-wrap justify-around content-center bg-blue-500
   }
+  .inac-trig {
+    @apply rounded-full w-12 h-12 border border-black bg-green-800;
+  }
+  .act-trig {
+    @apply rounded-full w-12 h-12 border border-black bg-green-300;
+  }
 }
