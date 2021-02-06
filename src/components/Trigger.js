@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as Tone from 'tone'
 
-export default function Trigger() {
+export default function Trigger(props) {
 
     const [active, setActive] = useState(false)
 
@@ -9,12 +9,21 @@ export default function Trigger() {
         if (!active){
             setActive(true)
             setTimeout(() => {setActive(false)}, 200)
-            helloTone()
+            patch()
         }
     }
 
-    function helloTone(){
-        const synth = new Tone.Synth().toDestination()
+
+    function patch(){
+        const synth = new Tone.Synth()
+        if (props.synth.length === 0){
+            synth.connect(Tone.getDestination())
+        }
+        if (props.synth.includes('reverb')){
+            console.log('contains reverb!')
+            const reverb = new Tone.Reverb("2").toDestination()
+            synth.connect(reverb)
+        }
         synth.triggerAttackRelease("C4", "8n")
     }
 

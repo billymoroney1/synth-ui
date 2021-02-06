@@ -24,7 +24,7 @@ export default function UI() {
     return (
         <div className='flex w-3/5 m-auto flex-col space-y-12'>
             <div className='h-42 flex justify-around content-center'>
-                <Trigger />
+                <Trigger synth={synth} />
                 <MainOnOff />
             </div>
             <div className='flex justify-around'>
