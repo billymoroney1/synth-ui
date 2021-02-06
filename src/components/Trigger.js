@@ -3,8 +3,10 @@ import * as Tone from 'tone'
 
 export default function Trigger(props) {
 
+    //determines whether button is active (very brief just to show animation)
     const [active, setActive] = useState(false)
 
+    //make button blink, then fire patch()
     const handleClick = (e) => {
         if (!active){
             setActive(true)
@@ -13,21 +15,29 @@ export default function Trigger(props) {
         }
     }
 
-
+    //compile all data to make final sound
     function patch(){
+
+        //make a synth
         const synth = new Tone.Synth()
+
+        //if there are no effects, send the audio directly to destination
         if (props.synth.length === 0){
             synth.connect(Tone.getDestination())
         }
+
+        //following conditionals test to see if corresponding effect is in synth state, if it is, create that module and add it to the chain
         if (props.synth.includes('reverb')){
             console.log('contains reverb!')
             const reverb = new Tone.Reverb("2").toDestination()
             synth.connect(reverb)
         }
+
         if (props.synth.includes('filter')){
             const filter = new Tone.OnePoleFilter('400', 'lowpass').toDestination()
             synth.connect(filter)
         }  
+
         if (props.synth.includes('phaser')){
             const phaser = new Tone.Phaser({
             "frequency" : 15,
@@ -36,16 +46,19 @@ export default function Trigger(props) {
             .toDestination()
             synth.connect(phaser)
         }
+
         if (props.synth.includes('delay')){
             const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
             synth.connect(delay)
         }
+        //trigger a note for a specified duration
         // synth.triggerAttackRelease("C4", "8n")
         synth.triggerAttackRelease("D2", "8n")
     }
 
 
     return (
+        //this just fires off a quick flash to indicate that the button was clicked
         <div className={active ? 'act-trig' : 'inac-trig'} onClick={handleClick}>
             
         </div>

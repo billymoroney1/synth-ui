@@ -5,16 +5,20 @@ import EffectControl from './EffectControl'
 
 export default function UI() {
 
+    //keep track of effects to be passed to the synth(trigger)
     const [synth, setSynth] = useState([])
 
+    //helper function to pass down into effects
     const effectAdd = (name) => {
         setSynth([...synth, name])
     }
-
+    
+    //fire this hook everytime synth state changes
     useEffect(() => {
         console.log(synth)
     }, [synth])
 
+    //helper function to pass down into effects
     const effectRemove = (name) => {
         let i = synth.indexOf(name)
         synth.splice(i, 1)
