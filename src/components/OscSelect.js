@@ -9,7 +9,10 @@ export default function OscSelect() {
     return(
         <div>
             <select name='osc-type'>
-                <option value='sine'></option>
+                <option value='sine'>sine</option>
+                <option value='triangle'>triangle</option>
+                <option value='square'>square</option>
+                <option value='sawtooth'>sawtooth</option>
             </select>
         </div>
     )

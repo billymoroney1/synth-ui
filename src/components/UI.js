@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import MainOnOff from './MainOnOff'
 import Trigger from './Trigger'
 import EffectControl from './EffectControl'
+import OscSelect from './OscSelect'
 
 export default function UI() {
 
@@ -12,7 +13,7 @@ export default function UI() {
     const effectAdd = (name) => {
         setSynth([...synth, name])
     }
-    
+
     //fire this hook everytime synth state changes
     useEffect(() => {
         console.log(synth)
@@ -29,6 +30,7 @@ export default function UI() {
         <div className='flex w-3/5 m-auto flex-col space-y-12'>
             <div className='h-42 flex justify-around content-center'>
                 <Trigger synth={synth} />
+                <OscSelect />
                 <MainOnOff />
             </div>
             <div className='flex justify-around'>
