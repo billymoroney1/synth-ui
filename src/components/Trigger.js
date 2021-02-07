@@ -17,7 +17,6 @@ export default function Trigger(props) {
 
     //compile all data to make final sound
     function patch(){
-        console.log('waveform: ', props.wave)
         //make a monosynth
         const synth = new Tone.Synth({
             oscillator: {
