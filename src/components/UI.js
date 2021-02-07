@@ -3,6 +3,7 @@ import MainOnOff from './MainOnOff'
 import Trigger from './Trigger'
 import EffectControl from './EffectControl'
 import WaveSelect from './WaveSelect'
+import Envelope from './Envelope'
 
 export default function UI() {
 
@@ -33,6 +34,7 @@ export default function UI() {
             <div className='h-42 flex justify-around content-center'>
                 <Trigger synth={synth} wave={wave} />
                 <WaveSelect handleChange={waveChange} />
+                <Envelope />
                 <MainOnOff />
             </div>
             <div className='flex justify-around'>

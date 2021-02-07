@@ -24,6 +24,9 @@ export default function Trigger(props) {
             }
         })
 
+        //how chain 2 synths?
+        
+
         //check to see how many oscillators are active and type of waveform
         // const synth = new Tone.Oscillator("440", "sine")
 
