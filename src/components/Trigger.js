@@ -17,9 +17,17 @@ export default function Trigger(props) {
 
     //compile all data to make final sound
     function patch(){
+        console.log('waveform: ', props.wave)
+        //make a monosynth
+        const synth = new Tone.Synth({
+            oscillator: {
+                type: props.wave
+            }
+        })
 
-        //make a synth
-        const synth = new Tone.Synth()
+        //check to see how many oscillators are active and type of waveform
+        // const synth = new Tone.Oscillator("440", "sine")
+
 
         //if there are no effects, send the audio directly to destination
         if (props.synth.length === 0){
