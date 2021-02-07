@@ -21,11 +21,17 @@ export default function Trigger(props) {
         const synth = new Tone.Synth({
             oscillator: {
                 type: props.wave
+            },
+            envelope: {
+                attack: props.envelope[0],
+                decay: props.envelope[1],
+                sustain: props.envelope[2],
+                release: props.envelope[3]
             }
         })
 
         //how chain 2 synths?
-        
+
 
         //check to see how many oscillators are active and type of waveform
         // const synth = new Tone.Oscillator("440", "sine")

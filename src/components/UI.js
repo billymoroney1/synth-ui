@@ -11,6 +11,8 @@ export default function UI() {
     const [synth, setSynth] = useState([])
     //keep track of waveform
     const [wave, setWave] = useState("sine")
+    //manage envelope
+    const [envelope, setEnvelope] = useState([0.1, 0.2, 1.0, 0.8])
 
     //use drop down menu to change waveform
     const waveChange = (e) => {
@@ -29,12 +31,33 @@ export default function UI() {
         setSynth([...synth])
     }
 
+    //******** */
+    //ENVELOPE HELPER FUNCTIONS
+    /********** */
+
+    const adsrChange = (e) => {
+        //copy of state array
+        let env = envelope
+        if (e.target.name === 'attack'){
+            env[0] = e.target.value
+        } else if (e.target.name === 'decay'){
+            env[1] = e.target.value
+        } else if (e.target.name === 'sustain'){
+            env[2] = e.target.value
+        } else if (e.target.name === 'release'){
+            env[3] = e.target.value
+        }
+        
+        console.log(env)
+        setEnvelope(env)
+    }
+
     return (
         <div className='flex w-3/5 m-auto flex-col space-y-12'>
             <div className='h-42 flex justify-around content-center'>
-                <Trigger synth={synth} wave={wave} />
+                <Trigger synth={synth} wave={wave} envelope={envelope}/>
                 <WaveSelect handleChange={waveChange} />
-                <Envelope />
+                <Envelope adsrChange={adsrChange} env={envelope} />
                 <MainOnOff />
             </div>
             <div className='flex justify-around'>
