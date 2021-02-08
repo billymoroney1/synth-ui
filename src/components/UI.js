@@ -53,7 +53,6 @@ export default function UI() {
             env[3] = val
         }
         
-        console.log(envelope)
         setEnvelope([...env])
     }
 
