@@ -31,25 +31,30 @@ export default function UI() {
         setSynth([...synth])
     }
 
+    //trigger rerender on envelope state change
+    useEffect(() => {
+        // console.log(envelope)
+    }, [envelope])
+
     //******** */
     //ENVELOPE HELPER FUNCTIONS
     /********** */
 
-    const adsrChange = (e) => {
+    const adsrChange = (val, name) => {
         //copy of state array
         let env = envelope
-        if (e.target.name === 'attack'){
-            env[0] = e.target.value
-        } else if (e.target.name === 'decay'){
-            env[1] = e.target.value
-        } else if (e.target.name === 'sustain'){
-            env[2] = e.target.value
-        } else if (e.target.name === 'release'){
-            env[3] = e.target.value
+        if (name === 'attack'){
+            env[0] = val
+        } else if (name === 'decay'){
+            env[1] = val
+        } else if (name === 'sustain'){
+            env[2] = val
+        } else if (name === 'release'){
+            env[3] = val
         }
         
-        console.log(env)
-        setEnvelope(env)
+        console.log(envelope)
+        setEnvelope([...env])
     }
 
     return (
