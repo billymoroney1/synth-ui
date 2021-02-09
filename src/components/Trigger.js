@@ -30,6 +30,18 @@ export default function Trigger(props) {
             }
         })
 
+        const wave = new Tone.Waveform(16)
+
+        synth.connect(wave)
+
+        let myTimer = setInterval(() => {
+            console.log(wave.getValue())
+        }, 100)
+
+        setTimeout(() => {
+            clearInterval(myTimer)
+        }, 2000)
+
         //how chain 2 synths?
 
 
