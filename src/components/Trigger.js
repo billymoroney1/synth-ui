@@ -30,17 +30,17 @@ export default function Trigger(props) {
             }
         })
 
-        const wave = new Tone.Waveform(16)
+        // const wave = new Tone.Waveform(16)
 
-        synth.connect(wave)
+        // synth.connect(wave)
 
-        let myTimer = setInterval(() => {
-            console.log(wave.getValue())
-        }, 100)
+        // let myTimer = setInterval(() => {
+        //     console.log(wave.getValue())
+        // }, 100)
 
-        setTimeout(() => {
-            clearInterval(myTimer)
-        }, 2000)
+        // setTimeout(() => {
+        //     clearInterval(myTimer)
+        // }, 2000)
 
         //how chain 2 synths?
 
@@ -62,7 +62,13 @@ export default function Trigger(props) {
         }
 
         if (props.synth.includes('filter')){
-            const filter = new Tone.OnePoleFilter('400', 'lowpass').toDestination()
+            console.log('props.filter: ', props.filter)
+            let filter
+            if (props.filter === 'lowpass'){
+                filter = new Tone.OnePoleFilter('300', 'lowpass').toDestination()
+            } else if (props.filter === 'highpass'){
+                filter = new Tone.OnePoleFilter('1200', 'highpass').toDestination()
+            }
             synth.connect(filter)
         }  
 

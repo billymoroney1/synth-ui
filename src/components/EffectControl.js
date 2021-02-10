@@ -16,6 +16,7 @@ export default function EffectControl(props) {
             props.remove(props.name)
         }
     }
+    
     //toggles classes for style
     return (
         <div className={enabled ? 'on-effect' : 'off-effect'} onClick={handleClick}>
