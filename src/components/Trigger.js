@@ -61,6 +61,12 @@ export default function Trigger(props) {
             synth.connect(reverb)
         }
 
+        if (props.synth.includes('compressor')){
+            console.log('contains compressor!')
+            const compressor = new Tone.Compressor(-90, 4).toDestination()
+            synth.connect(compressor)
+        }
+
         if (props.synth.includes('filter')){
             console.log('props.filter: ', props.filter)
             let filter

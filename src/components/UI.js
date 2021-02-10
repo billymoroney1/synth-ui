@@ -79,6 +79,7 @@ export default function UI() {
                 <Dropdown name='filterType' options={['lowpass', 'highpass']} handleChange={optionSelect} />
                 <EffectControl name={'phaser'} add={effectAdd} remove={effectRemove} />
                 <EffectControl name={'delay'} add={effectAdd} remove={effectRemove} />
+                <EffectControl name={'compressor'} add={effectAdd} remove={effectRemove} />
             </div>
         </div>
     )
